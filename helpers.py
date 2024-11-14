@@ -70,7 +70,6 @@ def logout(driver):
     time.sleep(1)
     driver.find_element(By.ID, "logout_sidebar_link").click()
     time.sleep(1)
-    driver.refresh()
 
 def click_all_buttons(driver):
     add_to_cart_button = driver.find_elements(By.XPATH, "//button[text()='Add to cart']")
