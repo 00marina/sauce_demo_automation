@@ -9,6 +9,7 @@ def driver():
     yield driver
     driver.quit()
 
+#testing sorting options of the items on the homepage
 @pytest.mark.parametrize("username, password", user_data)
 @pytest.mark.parametrize("menu_action, target_element, expected_result", [
     ("//*[@id='header_container']/div[2]/div/span/select/option[2]", "inventory_item_name", "is_descending"),

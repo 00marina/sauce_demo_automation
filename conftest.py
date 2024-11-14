@@ -1,6 +1,7 @@
 import pytest
 from helpers import skip_user_check, perform_login
 
+#login function used by many tests
 @pytest.fixture(scope="function")
 def login_first(driver, username, password):
     skip_user_check(username, password)

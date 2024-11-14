@@ -31,6 +31,7 @@ def login_visual_user(driver):
 
 
 def perform_login(driver, username, password):
+    driver.get("https://www.saucedemo.com/")
     username_input = driver.find_element(By.ID, "user-name")
     username_input.clear()
     username_input.send_keys(username)
@@ -53,6 +54,27 @@ user_data = [
     ("performance_glitch_user", "secret_sauce"),
     ("error_user", "secret_sauce"),
     ("visual_user", "secret_sauce")
+]
+
+user_data_for_login = [
+    ("standard_user", "secret_sauce", "https://www.saucedemo.com/inventory.html"),
+    ("locked_out_user", "secret_sauce", "https://www.saucedemo.com/"),
+    ("problem_user", "secret_sauce", "https://www.saucedemo.com/inventory.html"),
+    ("performance_glitch_user", "secret_sauce", "https://www.saucedemo.com/inventory.html"),
+    ("error_user", "secret_sauce", "https://www.saucedemo.com/inventory.html"),
+    ("visual_user", "secret_sauce", "https://www.saucedemo.com/inventory.html"),
+    ("Standard_user", "Secret_sauce", "https://www.saucedemo.com/"),
+    ("Locked_out_user", "Secret_sauce", "https://www.saucedemo.com/"),
+    ("Problem_user", "Secret_sauce", "https://www.saucedemo.com/"),
+    ("Performance_glitch_user", "Secret_sauce", "https://www.saucedemo.com/"),
+    ("Error_user", "Secret_sauce", "https://www.saucedemo.com/"),
+    ("Visual_user", "Secret_sauce", "https://www.saucedemo.com/"),
+    ("STANDARD_USER", "SECRET_SAUCE", "https://www.saucedemo.com/"),
+    ("LOCKED_OUT_USER", "SECRET_SAUCE", "https://www.saucedemo.com/"),
+    ("PROBLEM_USER", "SECRET_SAUCE", "https://www.saucedemo.com/"),
+    ("PERFORMANCE_GLITCH_USER", "SECRET_SAUCE", "https://www.saucedemo.com/"),
+    ("ERROR_USER", "SECRET_SAUCE", "https://www.saucedemo.com/"),
+    ("VISUAL_USER", "SECRET_SAUCE", "https://www.saucedemo.com/")
 ]
 
 user_data_simple = [

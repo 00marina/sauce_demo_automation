@@ -8,6 +8,7 @@ def driver():
     yield driver
     driver.quit()
 
+#test logout
 @pytest.mark.parametrize("username, password", user_data)
 def test_logout(driver, login_first, username, password):
     logout(driver)
@@ -17,6 +18,7 @@ def test_logout(driver, login_first, username, password):
 
     assert expected_url == actual_url, f"User {username} got wrong url {actual_url}."
 
+#test session
 @pytest.mark.parametrize("username, password", user_data)
 def test_session(driver, login_first, username, password):
     logout(driver)

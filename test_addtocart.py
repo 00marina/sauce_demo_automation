@@ -14,6 +14,7 @@ def driver():
     yield driver
     driver.quit()
 
+#check all homepage add to cart buttons
 @pytest.mark.parametrize("username, password", user_data)
 def test_button_click(driver, login_first, username, password):
     time.sleep(1)
@@ -28,6 +29,7 @@ def test_button_click(driver, login_first, username, password):
 
     logout(driver)
 
+#check if the cart number is a match for number of items user added to the cart
 @pytest.mark.parametrize("username, password", user_data)
 def test_cart_number(driver, login_first, username, password):
     add_to_cart_button, initial_add_to_cart_count = click_all_buttons(driver)
@@ -37,6 +39,7 @@ def test_cart_number(driver, login_first, username, password):
 
     assert initial_add_to_cart_count == cart_number_value, f'Cart number does not match number of clicked buttons for {username}.'
 
+#check if titles of the items in the cart match the ones user added to the cart
 @pytest.mark.parametrize("username, password", user_data)
 def test_cart_items(driver, login_first, username, password):
     titles = []

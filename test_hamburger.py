@@ -12,6 +12,7 @@ def driver():
     yield driver
     driver.quit()
 
+#login and open hamburger
 @pytest.fixture(scope="function")
 def login_and_open_hamburger(driver, username, password):
     skip_user_check(username, password)
@@ -20,6 +21,7 @@ def login_and_open_hamburger(driver, username, password):
     perform_login(driver, username, password)
     open_hamburger(driver)
 
+#check if hamburger is really opened
 @pytest.mark.parametrize("username, password", user_data)
 def test_ham_opening(driver, login_and_open_hamburger, username, password):
     target_element = driver.find_element(By.CLASS_NAME, "bm-menu-wrap")
@@ -27,6 +29,7 @@ def test_ham_opening(driver, login_and_open_hamburger, username, password):
     assert aria_value == "false", f"Test Failed for {username}: aria-hidden value is {aria_value}, expected 'false'."
 
 
+#test all options of the side menu
 @pytest.mark.parametrize("username, password", user_data)
 @pytest.mark.parametrize("menu_action, expected_result", [
     ("inventory_sidebar_link", "https://www.saucedemo.com/inventory.html"),
@@ -41,6 +44,7 @@ def test_hammenu_options(driver, login_and_open_hamburger, username, password, m
     actual_url = driver.current_url
     assert actual_url == expected_result, f"Test Failed for {username}: Expected {expected_result}, but got {actual_url}."
 
+#test reset option is the side menu
 @pytest.mark.parametrize("username, password", user_data)
 def test_app_reset(driver, login_and_open_hamburger, username, password):
     control_button = driver.find_element(By.ID, "add-to-cart-sauce-labs-backpack")
